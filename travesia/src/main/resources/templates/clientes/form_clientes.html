@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="plantillas/base::head" >
+    
+</head>
+
+<body  data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+
+    <nav th:replace="plantillas/base::navbar" class="custom-navbar navbar navbar-expand-lg navbar-dark fixed-top" data-spy="affix" data-offset-top="10"></nav>
+
+
+
+    <div class="container-fluid has-bg-overlay text-center text-light has-height-lg middle-items" id="book-table">
+        <div class="">
+            <h2 class="section-title mb-5" style=" margin-top: 9.5rem !important; font-size: 3rem;">AGREGAR CLIENTES</h2>
+            <form th:action="@{/travesia/insertar_clientes}" method="post" th:object="${nuevocliente}">   
+           
+            <div class="row mb-5" >
+       
+                <div class="col-sm-6 col-md-3 col-xs-12 my-2">
+                    <input type="text" id="" th:field="*{nombre}" class="form-control form-control-lg custom-form-control" placeholder="NOMBRE">
+                </div>
+        
+                <div class="col-sm-6 col-md-3 col-xs-12 my-2">
+                    <input type="text" id="" th:field="*{apellidos}" class="form-control form-control-lg custom-form-control" placeholder="APELLIDOS">
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-xs-12 my-2">
+                    <input type="number"  th:field="*{movil}" class="form-control form-control-lg custom-form-control" placeholder="MOVIL">
+                </div>
+
+
+                <div class="col-sm-6 col-md-3 col-xs-12 my-2">
+                    <select th:field="*{travesias}" class="form-control form-control-lg custom-form-control" >
+                        <option value="">TRAVESIAS</option> 
+                        <option th:each="trav:${listravesias}" 
+                          th:value="${trav.id}" 
+                          th:text="${trav.nombre}" />
+                                            
+                    </select>
+                 </div>
+                            
+              
+            </div>
+            <button type="submit" class="btn btn-lg btn-primary" id="rounded-btn">AGREGAR</button>
+           </form>
+           
+            <!-- <a href="#" class="btn btn-lg btn-primary" id="rounded-btn">FIND TABLE</a> -->
+        </div>
+    </div>
+    </body>
+    </html>

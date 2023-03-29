@@ -1,0 +1,62 @@
+
+ 
+   
+      <td  th:object="${editarcliente}">
+        <div class="col-sm-12">
+        <!-- <h2 th:text=" ${editarcliente} "></h2> -->
+        <input  type="text" th:field="*{nombre}" class="form-control form-control-lg custom-form-control"
+      />
+        </div>
+      </td>
+
+       <td  th:object="${editarcliente}">
+        <div class="col-sm-12">
+          <input  type="text" th:field="*{apellidos}" class="form-control form-control-lg custom-form-control"
+          />
+        </div>
+      </td>
+
+      <td  th:object="${editarcliente}">
+        <div class="col-sm-12">
+          <input  type="text" th:field="*{movil}" class="form-control form-control-lg custom-form-control"
+          />
+        </div>
+      </td>
+
+      <td th:object="${editarcliente}">
+        <button  id="button_accept" th:value="*{id}" type="button" class="btn btn-primary btn-sm" onclick="load(); "><i class="ti-check pr-1"></i> </button>
+       
+        <button  id="button_cancel" th:field="*{id}" type="button"  class="btn btn-danger btn-sm"> <i class="ti-time pr-1"></i> </button>
+    </td>
+
+
+
+<script type="application/javascript">
+
+  $('#button_cancel').on('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      var button_id = $(this).attr('field');
+    //  alert(button_id);
+      $('#' + button_id).html(save_tr);
+    //  $('#form-check').removeAttr("action", "editar_clientes/" + button_id).removeAttr('method', 'post');
+  })
+
+  function load() {
+      $('#button_cancel').attr('disabled', 'disabled');
+      var id = $('#button_accept').val() ;
+      var nombre = $('#nombre').val();
+      var apellidos = $('#apellidos').val();
+      var movil = $('#movil').val();
+     // current.attr('disabled', 'disabled');
+       $('#form-check').attr("action", "/travesia/editar_clientes/" + id ).attr('method', 'post')
+       $('#form-check').submit();
+         
+  }
+
+  
+
+  
+
+  //--------------------------------------------FIN-------------------------------------------------
+</script>

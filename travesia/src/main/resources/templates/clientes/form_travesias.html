@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="plantillas/base::head" >
+    
+</head>
+
+<body  data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+
+    <nav th:replace="plantillas/base::navbar" class="custom-navbar navbar navbar-expand-lg navbar-dark fixed-top" data-spy="affix" data-offset-top="10"></nav>
+
+
+
+    <div class="container-fluid has-bg-overlay text-center text-light has-height-lg middle-items" id="book-table">
+        <div class="">
+            <h2 class="section-title mb-5">AGREGAR TRAVESIAS</h2>
+            <form th:action="@{/travesia/insertar_travesias}" method="post" th:object="${nuevatravesia}">   
+           
+            <div class="row mb-5" style="margin-left: 15rem;">
+       
+                <div class="col-sm-6 col-md-3 col-xs-12 my-2">
+                    <input type="text" id="" th:field="*{nombre}" class="form-control form-control-lg custom-form-control" placeholder="NOMBRE">
+                </div>
+        
+                <div class="col-sm-6 col-md-3 col-xs-12 my-2">
+                    <input type="text" id="" th:field="*{precio}" class="form-control form-control-lg custom-form-control" placeholder="PRECIO">
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-xs-12 my-2">
+                    
+                    <input type="text"  th:field="*{recorrido}" class="form-control form-control-lg custom-form-control" placeholder="RECORRIDO">
+               
+                </div>
+
+ 
+            </div>
+            <button type="submit" class="btn btn-lg btn-primary" id="rounded-btn">AGREGAR</button>
+           </form>
+           
+            <!-- <a href="#" class="btn btn-lg btn-primary" id="rounded-btn">FIND TABLE</a> -->
+        </div>
+    </div>
+    </body>
+    </html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="plantillas/base::head"> </head>
+
+  <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+   
+      <!-- Navbar -->
+     <nav th:replace="plantillas/base::navbar" class="custom-navbar navbar navbar-expand-lg navbar-dark fixed-top" data-spy="affix" data-offset-top="10"></nav>
+
+    <!-- REVIEWS Section  -->
+    <div id="testmonial"  class="container-fluid wow fadeIn bg-dark text-light has-height-lg middle-items" >
+      <h2 class="section-title my-4 text-center" style=" margin-top: 9.5rem !important; font-size: 3rem;">Clientes Agregados</h2>
+      <div class="row mt-3 mb-5">
+        <!-- TABLE LISTADO Section  -->
+
+        <div class="col-md-2" style=" position: relative; top: -13px; ">
+          <a  th:href="@{/travesia/crear_cliente}"> <span class="badge badge-pill badge-success"> INCLUIRSE</span> </a> 
+       </div>
+       
+       <button value="34" id="demo" onclick="prueba();" > PRUEBAS </button>
+
+
+
+       <form id="form-check" role="form" class="form-horizontal" style="width: 100%;">
+     
+       
+       
+         <table  id="tabla-cl" class="table table-bordered table-dark table-hover">
+
+          <!-- <div id="numero_registro">
+            <ul class="pagination pagination-sm" style=" position: relative; left: 73px; ">
+              <li class="page-item active" aria-current="page">
+                <span class="page-link">1</span>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+            </ul>
+          </div> -->
+
+          <thead>
+            <tr>
+              <th scope="col">NOMBRE</th>
+              <th scope="col">APELLIDOS</th>
+              <th scope="col">MOVIL</th>
+              <th scope="col">TRAVESIA</th>
+              <th scope="col">ACCIONES</th>
+            </tr>
+          </thead>
+          <tbody>
+                      
+          </tbody>
+        </table>
+        
+        
+    </form>  
+
+
+        <!-- end of tables -->
+
+
+        
+      </div>
+    
+   
+    <!-- Archivo js extra para que contiene las funciones adicionelas -->
+    <script th:src="@{/assets/vendors/jquery/jquery-3.4.1.js}"></script>
+    <script th:src="@{/assets/misfunciones_js/clientes.js}"></script>
+
+    <script type="text/javascript">
+   
+
+ 
+
+ // --------- APRENDER PARA LA PRUEBA ------------   
+//  async function ListCarros(){
+
+//   var request = await fetch('carros');
+//   var carros = await request.json();
+//      console.log(carros);
+
+//     }
+
+ 
+   
+     
+   
+    
+    </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+
+

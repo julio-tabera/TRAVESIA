@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CURSO DE JAVA SCRIPT</title>
+
+     <!-- font icons -->
+     <link rel="stylesheet"  th:href="@{/assets/vendors/themify-icons/css/themify-icons.css}">
+
+     <link rel="stylesheet" th:href="@{/assets/vendors/animate/animate.css}">
+ 
+     <!-- Bootstrap + FoodHut main styles -->
+     <link rel="stylesheet" th:href="@{/assets/css/foodhut.css}">
+  </head>
+  <body id="cuerpo">
+    <h1>
+      <script>
+        document.write("CURSO DE JAVA SCRIPT PILDORAS INFORMATICS");
+      </script>
+    </h1>
+
+    <input type="text" id="objeto_input" value="44" />
+    <input type="text" id="objeto_input2" value="" />
+    <input type="text" id="objeto_input3" value="" />
+
+    <button id="miboton" name="miboton" >Aceptar</button>
+    <button id="miboton_fondo">Eligir Color</button>
+    <button id="miboton_comprar">Comparar</button>
+    <button id="miboton_juego">Descubre</button>
+    <a id="calculadora" href="/curso/calculadora">Calculdora</a>
+
+     <!-- tables -->
+     <h3 class="components-section-title">Tables</h3>
+     <hr>
+     <form action="" id="form_1" method="post">    
+     <table class="table mitable">
+     
+           <tr id="tr1">
+              <td>
+             <div class="form-group">
+                <input type="text" class="form-contro form-control-sm" id="nombre" placeholder="Nombre">
+             </div>
+             </td>
+           </tr>
+       
+      
+           <tr id="tr2">
+            <td>
+           <div class="form-group">
+              <input type="text" class="form-contro form-control-sm" id="apellidos" placeholder="Apellidos">
+           </div>
+           </td>
+         </tr>
+
+          <tr id="tr3">
+              <td>
+             <div class="form-group">
+                <input type="number" class="form-contro form-control-sm" id="edad" placeholder="Edad">
+             </div>
+             </td>
+           </tr>
+
+                
+     </table>
+    </form>
+   
+  </body>
+
+  <!-- Archivo js extra para que contiene las funciones adicionelas -->
+  <script th:src="@{/assets/vendors/jquery/jquery-3.4.1.js}"></script>
+  <script th:src="@{/assets/misfunciones_js/curso-javascript.js}"></script>
+</html>
+
+<script>
+    // alert("hol mundo");
+
+//     window.onload = function () {
+//    //   Trabajar_conObjetos();
+//     };
+
+
+ 
+  </script>

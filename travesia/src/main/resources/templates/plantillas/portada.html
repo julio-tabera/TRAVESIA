@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="plantillas/base::head" >
+    
+</head>
+
+<body  data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+  
+    <nav th:replace="plantillas/base::navbar" class="custom-navbar navbar navbar-expand-lg navbar-dark fixed-top" data-spy="affix" data-offset-top="10"></nav>
+    <header th:replace="plantillas/base::header" ></header>
+    <div th:replace="plantillas/base::section" class="container-fluid wow fadeIn" id="about"data-wow-duration="1.5s"></div>
+    <div th:replace="plantillas/base::section-gallary" class="text-center bg-dark text-light has-height-md middle-items wow fadeIn"></div>
+    <div th:replace="plantillas/base::section-gallary-now"></div>
+
+    <!-- book a table Section INSERTAR CLIENTES  -->
+
+    <div class="container-fluid has-bg-overlay text-center text-light has-height-lg middle-items" id="book-table">
+        <div class="">
+            <h2 class="section-title mb-5">AGREGAR CLIENTES</h2>
+            <form th:action="@{/travesia/insertar_cliente}" method="post" th:object="${nuevocliente}">   
+           
+            <div class="row mb-5" style="margin-left: 200px;">
+       
+                <div class="col-sm-6 col-md-3 col-xs-12 my-2">
+                    <input type="text" id="booktable" class="form-control form-control-lg custom-form-control" placeholder="NOMBRE">
+                </div>
+        
+                <div class="col-sm-6 col-md-3 col-xs-12 my-2">
+                    <input type="text" id="booktable"  class="form-control form-control-lg custom-form-control" placeholder="APELLIDOS">
+                </div>
+                <div class="col-sm-6 col-md-3 col-xs-12 my-2">
+                    <input type="number" id="booktable"  class="form-control form-control-lg custom-form-control" placeholder="MOVIL">
+                </div>
+                  
+                  <button type="submit" class="btn btn-lg btn-primary" id="rounded-btn">AGREGAR</button>
+              
+            </div>
+           </form>
+           
+            <!-- <a href="#" class="btn btn-lg btn-primary" id="rounded-btn">FIND TABLE</a> -->
+        </div>
+    </div>
+
+    <div th:replace="plantillas/base::section-blog" class="container-fluid bg-dark text-light py-5 text-center wow fadeIn"></div>
+    
+    <!-- REVIEWS Section  -->
+    <div id="testmonial"  class="container-fluid wow fadeIn bg-dark text-light has-height-lg middle-items">
+        <h2 class="section-title my-5 text-center">Clientes Agregados</h2>
+        <div class="row mt-3 mb-5">
+            
+            <!-- TABLE LISTADO Section  -->
+
+            <table th:fragment="table_clites"  class="table table-bordered table-dark table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">NOMBRE</th>
+                    <th scope="col">APELLIDOS</th>
+                    <th scope="col">MOVIL</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                    <tr th:each ="cl:${clientes}">
+                      <td th:text ="${cl.nombre }"></td>
+              
+                      <td th:text ="${cl.apellidos }"></td>
+              
+                      <td th:text ="${cl.movil }"></td>
+                    </tr>
+                  
+                </tbody>
+              </table>
+              <!-- end of tables -->
+         
+      
+           
+        </div>
+    </div>
+
+    
+    
+    
+    
+    
+    <div th:replace="plantillas/base::section-contact" class="container-fluid bg-dark text-light border-top wow fadeIn"></div>
+    <div th:replace="plantillas/base::section-footer" class="container-fluid bg-dark text-light has-height-md middle-items border-top text-center wow fadeIn"></div>
+    <div th:replace="plantillas/base::section-footer-date" class="bg-dark text-light text-center border-top wow fadeIn" ></div>
+
+
+    
+
+</body>
+</html>
+
+
