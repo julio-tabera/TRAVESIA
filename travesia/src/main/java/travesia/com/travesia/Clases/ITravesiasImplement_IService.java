@@ -48,7 +48,7 @@ public class ITravesiasImplement_IService implements ITravesiasService {
 
         editartravesia.setNombre(travesia.getNombre());
         editartravesia.setRecorrido(travesia.getRecorrido());
-        // editarcliente.setMovil(cliente.getMovil());
+        editartravesia.setPrecio(travesia.getPrecio());
         // clientesrepository.save(editarcliente);
     }
 
