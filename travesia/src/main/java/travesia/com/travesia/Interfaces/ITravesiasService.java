@@ -13,6 +13,8 @@ public interface ITravesiasService {
 
     public void Editar(Travesias travesia, int id );
 
+    public Travesias BuscarxID(int id);
+
 
 	
 	

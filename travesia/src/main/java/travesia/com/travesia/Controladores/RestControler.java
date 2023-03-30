@@ -71,15 +71,6 @@ public class RestControler {
    }
 
 
-
-
-    
-
-
-
- 
- 
-
     //======================================== TRABAJO CON LAS TRAVESIAS =======================
 
     @RequestMapping(value = "travesias")
@@ -97,6 +88,13 @@ public class RestControler {
    
         traveciaservice.EliminarxID(id);
         return id;
+    }
+
+    @PostMapping (value = "editar_travesia/{id}")
+    public void Editar_Travesia(@ModelAttribute Travesias editartravesia, @PathVariable int id  ) {
+
+        traveciaservice.Editar(editartravesia, id);
+        
     }
 
    

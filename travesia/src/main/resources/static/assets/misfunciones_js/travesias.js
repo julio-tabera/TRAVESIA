@@ -45,7 +45,7 @@ $(document).ready(function(){
         for(let trav of travesias){   // se recorre el json y se ponen los valores en la tabla
           
           let botoneliminar = ' <a  class="badge badge-pill badge-danger eliminar" href="#"  onclick ="EliminarTravesia('+trav.id +')"> <span > Eliminar</span> </a>';
-          let botoneditar  =  '<a class="badge badge-pill badge-info editar" href="#" id='+ trav.id +'><span>Editar</span></a>';
+          let botoneditar  =  '<a class="badge badge-pill badge-info editar" href="#" onclick = "EditarTravesia('+trav.id +')"><span>Editar</span></a>';
 
           let travesiasHTML ='<tr id ='+ trav.id + '><th>'+ trav.nombre +'</th><td>' + trav.precio +'</td><td> '+ trav.recorrido +'</td><td><div> ' + botoneliminar +' '+botoneditar +'  </div></td> </tr> '  ; 
          
@@ -72,6 +72,32 @@ $(document).ready(function(){
                 var id = '#' + data;// se concatena la fila con id del producto
                 $(id).remove();// para eliminar  la fila
                }
+        },
+
+        error: function (request, msg, error) {                     // funcion encargada de procesar el error del servidor
+            alert("Ha ocurrido un error: [" + error + "]");
+        },
+    });
+    
+    }
+
+    var savetr = null; 
+
+    function EditarTravesia(id) {
+      
+     savetr = $('#tabla-trav').find('#' + id).html(); // se salva la fila 
+
+     // alert(savetr);
+      var url = "crear_travesia_edit/" + id
+       $.ajax({
+        type: 'POST',
+        url: url,
+        data: null,
+        success: function (data) {
+           console.log(data);
+           var fila = '#' + id; // se busca la fila para ponerle los input
+           $(fila).html(data);
+
         },
 
         error: function (request, msg, error) {                     // funcion encargada de procesar el error del servidor

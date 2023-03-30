@@ -1,0 +1,79 @@
+<td th:object="${editartravesia}">
+  <div class="col-sm-12">
+    <!-- <h2 th:text=" ${editarcliente} "></h2> -->
+    <input
+      type="text"
+      th:field="*{nombre}"
+      class="form-control form-control-lg custom-form-control"
+    />
+  </div>
+</td>
+
+<td th:object="${editartravesia}">
+  <div class="col-sm-12">
+    <input
+      type="number"
+      th:field="*{precio}"
+      class="form-control form-control-lg custom-form-control"
+    />
+  </div>
+</td>
+
+<td th:object="${editartravesia}">
+  <div class="col-sm-12">
+    <input
+      type="text"
+      th:field="*{recorrido}"
+      class="form-control form-control-lg custom-form-control"
+    />
+  </div>
+</td>
+
+<td th:object="${editartravesia}">
+  <button
+    id="button_accept"
+    th:value="*{id}"
+    type="button"
+    class="btn btn-primary btn-sm"
+    onclick="load(); "
+  >
+    <i class="ti-check pr-1"></i>
+  </button>
+
+  <button
+    id="button_cancel"
+    th:field="*{id}"
+    type="button"
+    class="btn btn-danger btn-sm"
+  >
+    <i class="ti-time pr-1"></i>
+  </button>
+</td>
+
+<script type="application/javascript">
+  $("#button_cancel").on("click", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    var button_id = $(this).attr("field");
+    // alert(button_id);
+    $("#" + button_id).html(savetr);
+    //  $('#form-check').removeAttr("action", "editar_clientes/" + button_id).removeAttr('method', 'post');
+  });
+
+
+  function load() {
+      $('#button_cancel').attr('disabled', 'disabled');
+      var id = $('#button_accept').val() ;
+     
+       $('#form-editar').attr("action", "/travesia/editar_travesia/" + id ).attr('method', 'post')
+       $('#form-editar').submit();
+       
+ 
+  }
+
+  
+    
+     
+
+  //--------------------------------------------FIN-------------------------------------------------
+</script>

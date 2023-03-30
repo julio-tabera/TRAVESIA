@@ -41,6 +41,11 @@ public class ITravesiasImplement_IService implements ITravesiasService {
        
     }
 
+    
+    @Override
+    public Travesias BuscarxID(int id) {
+       return travesiarepository.findById(id).orElse(null);
+    }
 
     @Override
     public void Editar(Travesias travesia, int id) {
@@ -49,8 +54,10 @@ public class ITravesiasImplement_IService implements ITravesiasService {
         editartravesia.setNombre(travesia.getNombre());
         editartravesia.setRecorrido(travesia.getRecorrido());
         editartravesia.setPrecio(travesia.getPrecio());
-        // clientesrepository.save(editarcliente);
+        travesiarepository.save(editartravesia);
     }
+
+
 
    
     

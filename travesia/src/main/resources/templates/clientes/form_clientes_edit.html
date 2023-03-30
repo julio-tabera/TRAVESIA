@@ -23,6 +23,20 @@
         </div>
       </td>
 
+      <td  th:object="${editarcliente}">
+        <div class="col-sm-12">  
+        <select th:field="*{travesias}" class="form-control form-control-lg custom-form-control" >
+          <option value="">TRAVESIAS</option> 
+          <option th:each="trav:${listravesias}" 
+            th:value="${trav.id}" 
+            th:text="${trav.nombre}" />
+                              
+          </select>
+        </div>
+      </td>
+
+          
+
       <td th:object="${editarcliente}">
         <button  id="button_accept" th:value="*{id}" type="button" class="btn btn-primary btn-sm" onclick="load(); "><i class="ti-check pr-1"></i> </button>
        
@@ -45,9 +59,9 @@
   function load() {
       $('#button_cancel').attr('disabled', 'disabled');
       var id = $('#button_accept').val() ;
-      var nombre = $('#nombre').val();
-      var apellidos = $('#apellidos').val();
-      var movil = $('#movil').val();
+      // var nombre = $('#nombre').val();
+      // var apellidos = $('#apellidos').val();
+      // var movil = $('#movil').val();
      // current.attr('disabled', 'disabled');
        $('#form-check').attr("action", "/travesia/editar_clientes/" + id ).attr('method', 'post')
        $('#form-check').submit();

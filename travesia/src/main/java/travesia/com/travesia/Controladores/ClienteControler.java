@@ -1,6 +1,5 @@
 package travesia.com.travesia.Controladores;
 
-import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -71,10 +70,13 @@ public class ClienteControler {
 
   @RequestMapping("/crear_cliente_edit/{id}")
   // @ResponseBody
-  public String Crear_Clientes_Editar(@PathVariable int id, Model model) throws SQLException {
+  public String Crear_Clientes_Editar(@PathVariable int id, Model model) {
 
     Clientes editarcliente = clienteservice.BuscarxID(id);
+    List <Travesias> travesias = travesiaservice.ListarTravesias();
     model.addAttribute("editarcliente", editarcliente);
+    model.addAttribute("listravesias", travesias);
+
     return "clientes/form_clientes_edit";
 
   }
@@ -106,6 +108,17 @@ public class ClienteControler {
 
     travesiaservice.Insertar(nuevatravesia);
     return "clientes/listado_travesias";
+  }
+
+
+  @RequestMapping("/crear_travesia_edit/{id}")
+  // @ResponseBody
+  public String Crear_Travesia_Editar(@PathVariable int id, Model model) {
+
+    Travesias editartravesia = travesiaservice.BuscarxID(id);
+    model.addAttribute("editartravesia", editartravesia);
+    return "clientes/form_travesias_edit";
+
   }
 
 
