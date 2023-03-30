@@ -31,12 +31,7 @@ public class Clientes implements Serializable {
     @Getter @Setter 
     private int movil;
 
-    public Clientes(int id, String nombre, String apellidos, int movil) {
-        this.id = id;
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.movil = movil;
-    }
+   
 
     public Clientes(){}
 

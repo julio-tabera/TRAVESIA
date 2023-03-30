@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import travesia.com.travesia.Entidades.Clientes;
+import travesia.com.travesia.Entidades.Travesias;
 
 public class PREBAS {
 
@@ -22,9 +23,8 @@ public class PREBAS {
 
             cliente.setId(cliente.getId() + 1);
 
-            String consulta = "INSERT INTO clientes (id, nombre, apellidos, movil) VALUES (' " + cliente.getId()
-                    + " ', ' " + cliente.getNombre() + "', '" + cliente.getApellidos() + " ', '" + cliente.getMovil()
-                    + " ')";
+            String consulta = "INSERT INTO clientes (id, nombre, apellidos, movil, travesia_id) VALUES (' " + cliente.getId()
+                    + " ', ' " + cliente.getNombre() + " ',' " + cliente.getApellidos() + " ',' " + cliente.getMovil() + "  ','  " + cliente.getTravesias().getId() + "     ')";
             mistatement.executeUpdate(consulta);
 
             System.out.println("Los datos se insertaron");
@@ -180,14 +180,26 @@ public class PREBAS {
     miscarros.add(new Carros("FERRARI", "BLANCO", 800));
     miscarros.add(new Carros("CHEVROLET", "AZUL", 567));
 
-        Clientes clientes = new Clientes(UltimoId(), "NUEVO", "NUEVO", 5555555);
+        Clientes clientes = new Clientes();
+        Travesias travesias = new Travesias();
+        travesias.setId(1);
+        // travesias.setNombre("RUTA_1");
+        // travesias.setRecorrido("BRASIL");
+        // travesias.setPrecio(23333);
+
+
+        clientes.setId(UltimoId());
+        clientes.setNombre("NUEVO");
+        clientes.setApellidos("NUEVO");
+        clientes.setMovil(666666);
+        clientes.setTravesias(travesias);
 
         Insertar(clientes);
-       BuscarxID();
-       EliminarxID();
-         UltimoId();
-          Editar();
-        Menor_carro();
+    //    BuscarxID();
+    //    EliminarxID();
+    //      UltimoId();
+    //       Editar();
+    //     Menor_carro();
 
         
 
