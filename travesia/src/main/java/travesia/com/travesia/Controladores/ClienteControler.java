@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import travesia.com.travesia.Clases.Carros;
 import travesia.com.travesia.Entidades.Clientes;
 import travesia.com.travesia.Entidades.Travesias;
@@ -86,9 +88,11 @@ public class ClienteControler {
 
   // la anotacion @PostMapping() se usa cuando vamos arecibir datos de la vista
   @PostMapping("/insertar_clientes")
-  public String Insertar_Clientes(@ModelAttribute Clientes nuevocliente) {
+  public String Insertar_Clientes(@ModelAttribute Clientes nuevocliente, RedirectAttributes mensajes) {
 
     clienteservice.Insertar(nuevocliente);
+    // para mostrar mensaje al usuario despues de la insertar un cliente
+    mensajes.addFlashAttribute("dark", "El cliente se ha registrado satisfactoriamente"); 
     return "clientes/listado_clientes";
   }
 

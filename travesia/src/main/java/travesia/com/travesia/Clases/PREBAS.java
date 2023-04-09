@@ -8,8 +8,44 @@ import java.util.List;
 import travesia.com.travesia.Entidades.Clientes;
 import travesia.com.travesia.Entidades.Travesias;
 
-public class PREBAS {
+public class PREBAS extends Thread {
 
+    Clientes cliente1 = new Clientes();
+    Travesias travesia1 = new Travesias();
+
+    public void run(){
+       
+        cliente1.setId(1);
+        cliente1.setNombre( "JULIO");
+        cliente1.setApellidos("RAMIREZ");
+        cliente1.setMovil(4545454);
+        travesia1.setId(1);
+        cliente1.setTravesias(travesia1);
+       
+        ///================================
+
+        Clientes cliente2 = new Clientes();
+        Travesias travesia2 = new Travesias();
+        cliente2.setId(2);
+        cliente2.setNombre( "MARLON");
+        cliente2.setApellidos("LOLO");
+        cliente2.setMovil(333333);
+        travesia2.setId(2);
+        cliente2.setTravesias(travesia2);
+
+                 
+                  
+        List<Clientes> listcli = new ArrayList<>();
+        listcli.add(cliente1);
+        listcli.add(cliente2);
+
+
+        for(Clientes cl: listcli){
+
+            System.out.println(cl);
+        }
+       
+    }
     
   
 
@@ -68,30 +104,38 @@ public class PREBAS {
 
     public static Clientes BuscarxID() throws SQLException {
 
-        Clientes cliente = new Clientes();
+        Clientes clientes = new Clientes();
         Connection miconexion = java.sql.DriverManager.getConnection("jdbc:mysql://localhost:3306/travesias", "root",
                 "");
 
         try (Statement mistatement = miconexion.createStatement()) {
-            String consulta = "SELECT * FROM clientes WHERE clientes.id = " + 6;
+            String consulta = "SELECT * FROM clientes WHERE clientes.id = " + 7;
             ResultSet result = mistatement.executeQuery(consulta);
-
+            Travesias travesias = new Travesias();
             if (result.next()) {
 
-                cliente = new Clientes(result.getInt(1), result.getString(2), result.getString(3), result.getInt(4));
-                return cliente;
-                // System.out.println(cliente);
+            // clientes = new Clientes(result.getInt(1), result.getString(2), result.getString(3), result.getInt(4));
+              
+                clientes.setId(result.getInt(1));
+                clientes.setNombre( result.getString(2));
+                clientes.setApellidos(result.getString(3));
+                clientes.setMovil(result.getInt(4));
+                travesias.setId(result.getInt(5));
+                clientes.setTravesias(travesias);
+
+                return clientes;
+               //System.out.println(result.getInt(5));
 
             }
 
         } catch (Exception e) {
 
             System.out.println("Error de conexion ");
-            return cliente;
+            return clientes;
 
         }
 
-        return cliente;
+        return clientes;
 
     }
 
@@ -194,12 +238,19 @@ public class PREBAS {
         clientes.setMovil(666666);
         clientes.setTravesias(travesias);
 
+        PREBAS mihilo = new PREBAS();
+        mihilo.start();
+
+
         Insertar(clientes);
-    //    BuscarxID();
+        System.out.println(BuscarxID()); ;
     //    EliminarxID();
     //      UltimoId();
     //       Editar();
     //     Menor_carro();
+
+        
+
 
         
 
